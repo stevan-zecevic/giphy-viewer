@@ -67,7 +67,7 @@ describe('HomeScreen', () => {
     );
   });
 
-  test('shows random GIF section initially', async () => {
+  it('shows random GIF section initially', async () => {
     render(<HomeScreen />, { wrapper });
 
     // Verify random GIF section is visible
@@ -78,7 +78,7 @@ describe('HomeScreen', () => {
     expect(screen.queryByText(/Search results/i)).toBeNull();
   });
 
-  test('switches to search results when search is focused', async () => {
+  it('switches to search results when search is focused', async () => {
     render(<HomeScreen />, { wrapper });
 
     // Find search input and focus it
@@ -97,7 +97,7 @@ describe('HomeScreen', () => {
     expect(screen.queryByText(/Random selected GIF/i)).toBeNull();
   });
 
-  test('clears search and returns to random GIF when cancel is pressed', async () => {
+  it('clears search and returns to random GIF when cancel is pressed', async () => {
     render(<HomeScreen />, { wrapper });
 
     // Find search input, focus it and type
