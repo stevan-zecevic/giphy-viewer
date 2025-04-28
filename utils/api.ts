@@ -2,7 +2,7 @@ import { RandomGifResponse, SearchGifResponse } from '@/utils/giphy-types';
 
 const fetchRandomGif = async (): Promise<RandomGifResponse> => {
   try {
-    const response = await fetch('https://api.giphy.com/v1/gifs/random?api_key=BluxFAOfAHEf9xg0PdiHD1fqlEAEdlSu');
+    const response = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${process.env.GIPHY_API_KEY}`);
     const data = await response.json();
 
     return data;
@@ -16,7 +16,7 @@ const fetchRandomGif = async (): Promise<RandomGifResponse> => {
 const fetchSearchGif = async (search: string): Promise<SearchGifResponse> => {
   try {
     const response = await fetch(
-      `https://api.giphy.com/v1/gifs/search?api_key=BluxFAOfAHEf9xg0PdiHD1fqlEAEdlSu&q=${search}&limit=21`,
+      `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${search}&limit=21`,
     );
     const data = await response.json();
 
